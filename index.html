@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asia Original Golmarket - Premium Golf Clubs from Korea</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a472a 0%, #2d5f3d 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo::before {
+            content: "⛳";
+            font-size: 2rem;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #20ba5a;
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 71, 42, 0.8), rgba(45, 95, 61, 0.8)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%232d5f3d" width="1200" height="400"/><path fill="%231a472a" opacity="0.3" d="M0,200 Q300,100 600,200 T1200,200 L1200,400 L0,400 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Features */
+        .features {
+            max-width: 1200px;
+            margin: -40px auto 60px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h3 {
+            color: #1a472a;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Products Section */
+        .products-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1a472a;
+            margin-bottom: 3rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::after {
+            content: '🏌️';
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.1;
+            right: -20px;
+            bottom: -20px;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-brand {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-name {
+            font-size: 1.4rem;
+            color: #1a472a;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .product-condition {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            margin: 10px 0;
+        }
+
+        .price-section {
+            margin: 15px 0;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1rem;
+        }
+
+        .sale-price {
+            font-size: 2rem;
+            color: #d32f2f;
+            font-weight: bold;
+            display: block;
+        }
+
+        .savings {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .inquiry-btn {
+            width: 100%;
+            background-color: #25D366;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .inquiry-btn:hover {
+            background-color: #20ba5a;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a472a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: transform 0.3s;
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">Asia Original Golmarket</div>
+            <a href="https://wa.me/821085521376" class="whatsapp-btn">
+                💬 Contact Us
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Premium Golf Clubs from Korea</h1>
+        <p>Authentic Korean golf equipment at unbeatable prices. Direct shipping to Thailand, Singapore & Vietnam.</p>
+    </section>
+
+    <!-- Features -->
+    <div class="features">
+        <div class="feature-card">
+            <h3>🇰🇷 Direct from Korea</h3>
+            <p>Authentic products sourced directly from Korean market</p>
+        </div>
+        <div class="feature-card">
+            <h3>💰 Best Prices</h3>
+            <p>Up to 30% cheaper than local market prices</p>
+        </div>
+        <div class="feature-card">
+            <h3>✅ Quality Guaranteed</h3>
+            <p>All products verified and condition-graded</p>
+        </div>
+        <div class="feature-card">
+            <h3>🚚 Fast Shipping</h3>
+            <p>Reliable delivery across Southeast Asia</p>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">⛳</div>
+                <div class="product-info">
+                    <div class="product-brand">Callaway</div>
+                    <h3 class="product-name">Apex Irons Set</h3>
+                    <span class="product-condition">Grade A</span>
+                    <div class="price-section">
+                        <span class="original-price">$900 USD</span>
+                        <span class="sale-price">$750 USD</span>
+                        <span class="savings">Save $150!</span>
+                    </div>
+                    <button class="inquiry-btn" onclick="inquireProduct('Callaway Apex Irons Set')">Inquire on WhatsApp</button>
+                </div>
+            </div>
+
+            <!-- Product 2 - Placeholder -->
+            <div class="product-card">
+                <div class="product-image">🏌️</div>
+                <div class="product-info">
+                    <div class="product-brand">TaylorMade</div>
+                    <h3 class="product-name">Stealth Driver</h3>
+                    <span class="product-condition">Grade A+</span>
+                    <div class="price-section">
+                        <span class="original-price">$550 USD</span>
+                        <span class="sale-price">$420 USD</span>
+                        <span class="savings">Save $130!</span>
+                    </div>
+                    <button class="inquiry-btn" onclick="inquireProduct('TaylorMade Stealth Driver')">Inquire on WhatsApp</button>
+                </div>
+            </div>
+
+            <!-- Product 3 - Placeholder -->
+            <div class="product-card">
+                <div class="product-image">⛳</div>
+                <div class="product-info">
+                    <div class="product-brand">Titleist</div>
+                    <h3 class="product-name">T200 Iron Set</h3>
+                    <span class="product-condition">Grade A</span>
+                    <div class="price-section">
+                        <span class="original-price">$1,100 USD</span>
+                        <span class="sale-price">$850 USD</span>
+                        <span class="savings">Save $250!</span>
+                    </div>
+                    <button class="inquiry-btn" onclick="inquireProduct('Titleist T200 Iron Set')">Inquire on WhatsApp</button>
+                </div>
+            </div>
+
+            <!-- Product 4 - Placeholder -->
+            <div class="product-card">
+                <div class="product-image">🏌️</div>
+                <div class="product-info">
+                    <div class="product-brand">Ping</div>
+                    <h3 class="product-name">G430 Driver</h3>
+                    <span class="product-condition">Grade A+</span>
+                    <div class="price-section">
+                        <span class="original-price">$600 USD</span>
+                        <span class="sale-price">$480 USD</span>
+                        <span class="savings">Save $120!</span>
+                    </div>
+                    <button class="inquiry-btn" onclick="inquireProduct('Ping G430 Driver')">Inquire on WhatsApp</button>
+                </div>
+            </div>
+
+            <!-- Product 5 - Placeholder -->
+            <div class="product-card">
+                <div class="product-image">⛳</div>
+                <div class="product-info">
+                    <div class="product-brand">Callaway</div>
+                    <h3 class="product-name">Rogue ST Fairway</h3>
+                    <span class="product-condition">Grade A</span>
+                    <div class="price-section">
+                        <span class="original-price">$350 USD</span>
+                        <span class="sale-price">$270 USD</span>
+                        <span class="savings">Save $80!</span>
+                    </div>
+                    <button class="inquiry-btn" onclick="inquireProduct('Callaway Rogue ST Fairway')">Inquire on WhatsApp</button>
+                </div>
+            </div>
+
+            <!-- Product 6 - Placeholder -->
+            <div class="product-card">
+                <div class="product-image">🏌️</div>
+                <div class="product-info">
+                    <div class="product-brand">Titleist</div>
+                    <h3 class="product-name">Vokey SM9 Wedge</h3>
+                    <span class="product-condition">Grade A+</span>
+                    <div class="price-section">
+                        <span class="original-price">$180 USD</span>
+                        <span class="sale-price">$135 USD</span>
+                        <span class="savings">Save $45!</span>
+                    </div>
+                    <button class="inquiry-btn" onclick="inquireProduct('Titleist Vokey SM9 Wedge')">Inquire on WhatsApp</button>
+                </div>
+            </div>
+
+            <!-- Product 7 - Placeholder -->
+            <div class="product-card">
+                <div class="product-image">⛳</div>
+                <div class="product-info">
+                    <div class="product-brand">TaylorMade</div>
+                    <h3 class="product-name">Spider Putter</h3>
+                    <span class="product-condition">Grade A</span>
+                    <div class="price-section">
+                        <span class="original-price">$280 USD</span>
+                        <span class="sale-price">$210 USD</span>
+                        <span class="savings">Save $70!</span>
+                    </div>
+                    <button class="inquiry-btn" onclick="inquireProduct('TaylorMade Spider Putter')">Inquire on WhatsApp</button>
+                </div>
+            </div>
+
+            <!-- Product 8 - Placeholder -->
+            <div class="product-card">
+                <div class="product-image">🏌️</div>
+                <div class="product-info">
+                    <div class="product-brand">Ping</div>
+                    <h3 class="product-name">i525 Iron Set</h3>
+                    <span class="product-condition">Grade A</span>
+                    <div class="price-section">
+                        <span class="original-price">$950 USD</span>
+                        <span class="sale-price">$720 USD</span>
+                        <span class="savings">Save $230!</span>
+                    </div>
+                    <button class="inquiry-btn" onclick="inquireProduct('Ping i525 Iron Set')">Inquire on WhatsApp</button>
+                </div>
+            </div>
+
+            <!-- Product 9 - Placeholder -->
+            <div class="product-card">
+                <div class="product-image">⛳</div>
+                <div class="product-info">
+                    <div class="product-brand">Cobra</div>
+                    <h3 class="product-name">LTDx Driver</h3>
+                    <span class="product-condition">Grade A+</span>
+                    <div class="price-section">
+                        <span class="original-price">$500 USD</span>
+                        <span class="sale-price">$380 USD</span>
+                        <span class="savings">Save $120!</span>
+                    </div>
+                    <button class="inquiry-btn" onclick="inquireProduct('Cobra LTDx Driver')">Inquire on WhatsApp</button>
+                </div>
+            </div>
+
+            <!-- Product 10 - Placeholder -->
+            <div class="product-card">
+                <div class="product-image">🏌️</div>
+                <div class="product-info">
+                    <div class="product-brand">Mizuno</div>
+                    <h3 class="product-name">JPX923 Iron Set</h3>
+                    <span class="product-condition">Grade A</span>
+                    <div class="price-section">
+                        <span class="original-price">$850 USD</span>
+                        <span class="sale-price">$650 USD</span>
+                        <span class="savings">Save $200!</span>
+                    </div>
+                    <button class="inquiry-btn" onclick="inquireProduct('Mizuno JPX923 Iron Set')">Inquire on WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h3>Asia Original Golmarket</h3>
+        <p>Bringing premium Korean golf equipment to Southeast Asia</p>
+        <p>📍 Serving: Thailand | Singapore | Vietnam</p>
+        <p>📱 WhatsApp: +82-10-8552-1376</p>
+        <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">© 2025 Asia Original Golmarket. All rights reserved.</p>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/821085521376" class="whatsapp-float" title="Contact us on WhatsApp">
+        💬
+    </a>
+
+    <script>
+        function inquireProduct(productName) {
+            const message = encodeURIComponent(`Hi! I'm interested in the ${productName}. Could you provide more details?`);
+            window.open(`https://wa.me/821085521376?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
